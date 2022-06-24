@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurantapp/screens/notifcationscreen.dart';
+import 'package:restaurantapp/widgets/sliderhome.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isSwitched = false;
+
   int wallet = 740, weekpay = 9940, monthpay = 10940;
   void toggleSwitch(bool value) {
     if (isSwitched == false) {
@@ -42,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           title: Image.asset('assets/logo-1.png')),
       body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -163,15 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     shrinkWrap: true,
-            //     physics: const ScrollPhysics(),
-            //     itemCount: orderData.length,
-            //     itemBuilder: (context, index) {
-            //       return Text(
-            //           "${orderData[index]["Name"]} (${orderData[index]["number"]})");
-            //     }),
+            const SliderHome(),
           ],
         ),
       ),
