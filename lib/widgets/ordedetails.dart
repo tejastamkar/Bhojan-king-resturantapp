@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -47,7 +45,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
 
     Widget menuList({required int index}) => Row(
           children: [
@@ -119,10 +117,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.linear,
-            width: 60 + myWidth,
-            height: 50,
+            width: 40 + myWidth,
+            height: 40,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.00),
+              borderRadius: BorderRadius.circular(9.00),
               color: Theme.of(context).primaryColor,
             ),
             child: myWidth > 100.0
@@ -145,11 +143,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Icon(
-                        Icons.navigate_next,
+                        Icons.double_arrow_rounded,
                         color: Colors.white,
-                        size: 50.00,
+                        size: 40.00,
                       ),
                     ],
                   ),
@@ -162,38 +161,32 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         await Future.delayed(const Duration(milliseconds: 3), () {
           setState(() {
             if (translateX + 1 <
-                MediaQuery.of(context).size.width - (62 + myWidth)) {
+                MediaQuery.of(context).size.width - (72 + myWidth)) {
               translateX += 1;
-              myWidth = MediaQuery.of(context).size.width - (62 + myWidth);
+              myWidth = MediaQuery.of(context).size.width - (40 + myWidth);
             } else {
               canLoop = 1;
             }
           });
         });
       }
-      // if (canLoop == 1) {
-      //   Navigator.pop(context);
-      // }
     }
 
     Widget menuSlider() => Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Container(
             decoration:
                 const BoxDecoration(color: Color.fromRGBO(230, 230, 233, 1)),
             width: MediaQuery.of(context).size.width,
             height: 50,
             child: GestureDetector(
-              onHorizontalDragUpdate: (event) {
+              onHorizontalDragUpdate: (event) async {
                 if (event.primaryDelta! > 10) {
-                  _incTansXVal();
+                  await _incTansXVal();
                 }
-                // sleep(const Duration(seconds: 1));
-                // if (myWidth > 300) {
-                //   Navigator.pop(context);
-                // }
+              },
+              onHorizontalDragEnd: (event) {
+                Navigator.pop(context);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
