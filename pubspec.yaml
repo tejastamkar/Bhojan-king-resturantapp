@@ -36,6 +36,12 @@ dependencies:
   flutter_svg_provider: ^1.0.3
   flutter_svg: ^1.1.0
   responsive_framework: ^0.2.0
+  carousel_slider: ^4.1.1
+  carousel_indicator: ^1.0.6
+  flutter_rating_bar: ^4.0.1
+  image_picker: ^0.8.5+3
+  day_night_time_picker: ^1.1.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

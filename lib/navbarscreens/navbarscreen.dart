@@ -4,9 +4,11 @@ import 'package:restaurantapp/navbarscreens/campaignscreen.dart';
 import 'package:restaurantapp/navbarscreens/homescreen.dart';
 import 'package:restaurantapp/navbarscreens/orderhistoryscreen.dart';
 import 'package:restaurantapp/navbarscreens/restroscreen.dart';
+import 'package:restaurantapp/screens/dinningscreen.dart';
 import 'package:restaurantapp/screens/helpsupportscreen.dart';
 import 'package:restaurantapp/screens/loginscreen.dart';
 import 'package:restaurantapp/screens/profillescreen.dart';
+import 'package:restaurantapp/widgets/addmenu.dart';
 import 'package:restaurantapp/widgets/categoryscreen.dart';
 import 'package:restaurantapp/widgets/menubtn.dart';
 
@@ -43,7 +45,8 @@ class _NavbarScreenState extends State<NavbarScreen> {
       MenuButton(
           icons: SvgPicture.asset("icons/addcart.svg"),
           name: "Add Food",
-          func: () {}),
+          func: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddMenuScreen()))),
       MenuButton(
           icons: SvgPicture.asset("icons/addons.svg"),
           name: "Addons",
@@ -60,7 +63,8 @@ class _NavbarScreenState extends State<NavbarScreen> {
       MenuButton(
           icons: SvgPicture.asset("icons/CalendarCheck.svg"),
           name: "Dinning",
-          func: () {}),
+          func: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DinningScreen()))),
       MenuButton(
           icons: SvgPicture.asset(
             "icons/mail.svg",
@@ -114,7 +118,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
               children: <Widget>[
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       InkWell(
                         onTap: (() => Navigator.pop(context)),

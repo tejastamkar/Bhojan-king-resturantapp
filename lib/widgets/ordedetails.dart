@@ -114,17 +114,17 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         );
     Widget comfirmedSuccessful() => Transform.translate(
           offset: Offset(translateX, translateY),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.linear,
-            width: 40 + myWidth,
-            height: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(9.00),
-              color: Theme.of(context).primaryColor,
-            ),
-            child: myWidth > 100.0
-                ? Row(
+          child: myWidth > 100.0
+              ? AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.linear,
+                  width: 50 + myWidth,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    // borderRadius: BorderRadius.circular(9.00),
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Icon(
@@ -140,8 +140,18 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                       ),
                     ],
-                  )
-                : Column(
+                  ),
+                )
+              : AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.linear,
+                  width: 40 + myWidth,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9.00),
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -152,7 +162,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                     ],
                   ),
-          ),
+                ),
         );
 
     _incTansXVal() async {
@@ -161,9 +171,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         await Future.delayed(const Duration(milliseconds: 3), () {
           setState(() {
             if (translateX + 1 <
-                MediaQuery.of(context).size.width - (72 + myWidth)) {
+                MediaQuery.of(context).size.width - (90 + myWidth)) {
               translateX += 1;
-              myWidth = MediaQuery.of(context).size.width - (40 + myWidth);
+              myWidth = MediaQuery.of(context).size.width - (90 + myWidth);
             } else {
               canLoop = 1;
             }

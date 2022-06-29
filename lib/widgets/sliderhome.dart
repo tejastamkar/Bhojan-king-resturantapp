@@ -31,6 +31,7 @@ class _SliderHomeState extends State<SliderHome> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     TabController tabController = _tabController;
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     Widget orderCard(
             {required int orderNo,
@@ -216,7 +217,7 @@ class _SliderHomeState extends State<SliderHome> with TickerProviderStateMixin {
         ),
         SizedBox(
           width: width,
-          height: 250,
+          height: height / 3,
           child: TabBarView(
               controller: tabController,
               physics: const NeverScrollableScrollPhysics(),
@@ -242,7 +243,7 @@ class _SliderHomeState extends State<SliderHome> with TickerProviderStateMixin {
                                           type: "",
                                           showtype: false,
                                           food: pendingOrderData[index]["food"],
-                                          confimed: true,
+                                          confimed: false,
                                           msg: 'Cooking',
                                         ))),
                             child: orderCard(
@@ -310,8 +311,8 @@ class _SliderHomeState extends State<SliderHome> with TickerProviderStateMixin {
                                           time: cookingOrderData[index]["time"],
                                           type: "",
                                           showtype: false,
-                                          confimed: false,
-                                          msg: '',
+                                          confimed: true,
+                                          msg: 'Hand Over',
                                         ))),
                             child: orderCard(
                                 orderNo: cookingOrderData[index]["orderId"],
