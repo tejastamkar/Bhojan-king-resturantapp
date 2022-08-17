@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurantapp/screens/loginscreen.dart';
 import 'package:restaurantapp/screens/passwordscreen.dart';
+import 'package:restaurantapp/screens/selecttypeofpartner.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -71,10 +72,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Restaurant Name",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    Text(
+                      selected == 0
+                          ? "Restaurant Name"
+                          : "Stall Name/ owner name",
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     Card(
                       child: Padding(

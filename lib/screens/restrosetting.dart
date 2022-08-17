@@ -23,7 +23,11 @@ List schedule = [
     "Saturday": [],
   }
 ];
-bool veg = false, nonveg = false, dinning = false, deilvery = false;
+bool veg = false,
+    nonveg = false,
+    dinning = false,
+    deilvery = false,
+    nighty = false;
 
 class RestroSettingScreen extends StatefulWidget {
   final String name, address;
@@ -76,7 +80,8 @@ class _RestroSettingScreenState extends State<RestroSettingScreen> {
                 ),
                 Text(
                   msg,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w600),
                 )
               ],
             ),
@@ -1063,6 +1068,45 @@ class _RestroSettingScreenState extends State<RestroSettingScreen> {
                       width: 20,
                     ),
                     const Text("Dinning",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400)),
+                    const Spacer(),
+                    Switch(
+                      onChanged: (
+                        bool value,
+                      ) {
+                        if (dinning == false) {
+                          setState(() {
+                            dinning = true;
+                          });
+                        } else {
+                          setState(() {
+                            dinning = false;
+                          });
+                        }
+                      },
+                      value: dinning,
+                      activeColor: Theme.of(context).primaryColor,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/nighty.png",
+                      width: 40,
+                      height: 40,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    const Text("Nighty",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400)),
                     const Spacer(),

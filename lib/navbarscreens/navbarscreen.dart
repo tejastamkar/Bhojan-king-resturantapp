@@ -6,6 +6,7 @@ import 'package:restaurantapp/navbarscreens/orderhistoryscreen.dart';
 import 'package:restaurantapp/navbarscreens/restroscreen.dart';
 import 'package:restaurantapp/screens/dinningscreen.dart';
 import 'package:restaurantapp/screens/helpsupportscreen.dart';
+import 'package:restaurantapp/screens/languagescreen.dart';
 import 'package:restaurantapp/screens/loginscreen.dart';
 import 'package:restaurantapp/screens/profillescreen.dart';
 import 'package:restaurantapp/widgets/addmenu.dart';
@@ -59,7 +60,8 @@ class _NavbarScreenState extends State<NavbarScreen> {
       MenuButton(
           icons: SvgPicture.asset("icons/Globe2.svg"),
           name: "language",
-          func: () {}),
+          func: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const LanguageScreen()))),
       MenuButton(
           icons: SvgPicture.asset("icons/CalendarCheck.svg"),
           name: "Dinning",

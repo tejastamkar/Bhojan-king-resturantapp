@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -96,7 +98,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             const Text(
@@ -117,7 +119,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const Text(
@@ -139,7 +141,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const Text(
@@ -177,7 +179,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -323,22 +325,22 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
             ),
             ToggleButtons(
                 selectedColor: Theme.of(context).primaryColor,
-                children: [
-                  Text("Sized"),
-                  Text("Type"),
-                  Text("Addon"),
-                ],
                 onPressed: (int index) {
                   setState(() {
                     isSelected[index] = !isSelected[index];
                   });
                 },
-                isSelected: isSelected),
+                isSelected: isSelected,
+                children: const [
+                  Text("Sized"),
+                  Text("Type"),
+                  Text("Addon"),
+                ]),
             const SizedBox(
               height: 30,
             ),
             const Text("Food Type"),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             if (imagePath == "")

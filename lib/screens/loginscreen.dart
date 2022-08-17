@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restaurantapp/navbarscreens/navbarscreen.dart';
-import 'package:restaurantapp/screens/signup.dart';
+import 'package:restaurantapp/screens/selecttypeofpartner.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -187,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => const RegisterScreen())));
+                          builder: ((context) => const TypeofPartner())));
                 },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 2,
                     ),
                     Text(
-                      "Restaurant",
+                      "Partner",
                       style: TextStyle(
                           fontSize: 16,
                           color: Color.fromRGBO(0, 0, 0, 1),

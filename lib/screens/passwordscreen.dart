@@ -168,11 +168,14 @@ class _PasswordScreenState extends State<PasswordScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 100, vertical: 10)),
                     onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NavbarScreen()));
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const NavbarScreen(),
+                        ),
+                        (route) => false,
+                      );
                     },
                     child: const Text(
                       "Submit",
